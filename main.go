@@ -43,8 +43,10 @@ func (p *program) Stop(service.Service) error {
 
 func (p *program) run() {
 	router := httprouter.New()
+
 	router.ServeFiles("/js/*filepath", http.Dir("js"))
 	router.GET("/", homepage)
+	router.POST("/get_calendar_data", getCalendarData)
 	err := http.ListenAndServe(":80", router)
 	if err != nil {
 		logError("MAIN", "Problem starting service: "+err.Error())
