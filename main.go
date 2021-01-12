@@ -12,10 +12,6 @@ const serviceDescription = "D3 web interface"
 
 type program struct{}
 
-type HomePageData struct {
-	Version string
-}
-
 func main() {
 	logInfo("MAIN", serviceName+" starting...")
 	serviceConfig := &service.Config{
